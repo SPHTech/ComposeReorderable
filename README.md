@@ -1,11 +1,12 @@
 # Compose LazyList/Grid reorder
-[![Latest release](https://img.shields.io/github/v/release/aclassen/ComposeReorderable?color=brightgreen&label=latest%20release)](https://github.com/aclassen/ComposeReorderable/releases/latest)
+Forked from https://github.com/aclassen/ComposeReorderable.
+
+Latest version: 1.0.0-SNAPSHOT
 
 A Jetpack Compose (Android + Desktop) modifier enabling reordering by drag and drop in a LazyList and LazyGrid.
 
-Forked from https://github.com/aclassen/ComposeReorderable.
 
-Changes made to include a way to locked items from being draggable.
+Changes made to include a `canDragOver` callback to allow locking of items from being draggable.
 ```kotlin
 @Composable
 fun VerticalReorderList() {
@@ -30,8 +31,21 @@ Modified publishing script to publish changes to GitHub Packages.
 ## Download
 
 ```
+repositories {
+    
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/SPHTech/ComposeReorderable")
+        credentials {
+            username = <github_username>
+            password = <github_token>
+        }
+    }
+}
+```
+```
 dependencies {
-    implementation("org.burnoutcrew.composereorderable:reorderable:<latest_version>")
+    implementation("sg.com.sph.android:reorderable:<latest_version>")
 }
 ```
 
